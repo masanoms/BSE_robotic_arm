@@ -1,15 +1,10 @@
-# Project Name Here
-Replace this text with a brief description (2-3 sentences) of your project. This description should draw the reader in and make them interested in what you've built. You can include what the biggest challenges, takeaways, and triumphs from completing the project were. As you complete your portfolio, remember your audience is less familiar than you are with all that your project entails!
+# Three-Jointed Robotic Arm
 
-You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
-```HTML 
-<!--- This is an HTML comment in Markdown -->
-<!--- Anything between these symbols will not render on the published site -->
-```
+I chose to build a robotic arm because I wanted a project that combined mechanical design, electronics, and programming. I also plan to study engineering, So I thought it would be a good way to learn how motors, Control systems, and software all work together to help make the robotic arm come to life and how 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
-| FirstName LastInitialOnly | School Name | Electrical Engineering | Incoming Senior
+| Malakai.C | Wahi high school | Aerospace engineering | Incoming Junior
 
 **Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
@@ -19,7 +14,7 @@ You should comment out all portions of your portfolio that you have not complete
 
 **Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/F7M7imOVGug" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" src="[https://www.youtube.com/embed/F7M7imOVGug](https://www.youtube.com/watch?v=Pb9fzQlkjnU)" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 For your final milestone, explain the outcome of your project. Key details to include are:
 - What you've accomplished since your previous milestone
@@ -43,33 +38,116 @@ For your second milestone, explain what you've worked on since your previous mil
 
 # First Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Pb9fzQlkjnU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CaCazFBhYKs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-For your first milestone, describe what your project is and how you plan to build it. You can include:
-- An explanation about the different components of your project and how they will all integrate together
-- Technical progress you've made so far
-- Challenges you're facing and solving in your future milestones
-- What your plan is to complete your project
+For my first milestone in the BlueStamp Engineering Remote Program, I completed the base version of my Arduino robotic arm and after I completed the assembly I focused on making the code for the robotic arm so that when I move the joysticks that it can move around. 
+
+The robot consists of four servo motors that provide movement at the base, shoulder, elbow, and gripper joints. Each servo is controlled using two joystick modules, allowing the arm to move smoothly in real time. The joystick modules output analog voltage signals that the Arduino reads through its analog input pins. The Arduino then converts these values into servo angles, enabling for the robotic arm to have the servos do precises movements.
+
+One of the biggest challenges during this milestone was eliminating jittering and the unresponsive control of the servos, the code not responding, and the microcontroller shield and later the analog joysticks not response time. 
+
+With the base project and code now complete, my future milestones will focus on improving the robotic arm's capabilities by replacing the gripper with TPU A95, replacing the various weak servos, using a worm gear to make the servos more precise and less more torque, and making the robotic arm design hopefully sleeker less dangling wires.
 
 # Schematics 
-Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
+
+Base Project Schematic:
+
+<img width="630" height="667" alt="image" src="<img width="1625" height="1602" alt="Screenshot 2026-07-24 125305" src="https://github.com/user-attachments/assets/f5dbd037-8e5f-4ba4-bf9a-f48b33ea42bd" />
+" />
+
 
 # Code
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
 ```c++
+#include <Servo.h>
+
+// Servo outputs
+Servo baseServo;
+Servo shoulderServo;
+Servo elbowServo;
+Servo gripperServo;
+
+// Starting positions
+int baseAngle = 90;
+int shoulderAngle = 90;
+int elbowAngle = 90;
+int gripperAngle = 90;
+
+// Your joysticks center around 315,
+// with ends near 0 and 630.
+const int LOW_LIMIT = 240;
+const int HIGH_LIMIT = 390;
+
 void setup() {
-  // put your setup code here, to run once:
+  baseServo.attach(4);       // D4
+  shoulderServo.attach(5);   // D5
+  elbowServo.attach(6);      // D6
+  gripperServo.attach(7);    // D7
+
+  baseServo.write(baseAngle);
+  shoulderServo.write(shoulderAngle);
+  elbowServo.write(elbowAngle);
+  gripperServo.write(gripperAngle);
+
   Serial.begin(9600);
-  Serial.println("Hello World!");
+  delay(1000);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  int leftUpDown = analogRead(A0);
+  int leftLeftRight = analogRead(A1);
+  int rightUpDown = analogRead(A2);
+  int rightLeftRight = analogRead(A3);
 
+  // Left joystick up/down -> base servo D4
+  if (leftUpDown < LOW_LIMIT) {
+    baseAngle--;
+  } 
+  else if (leftUpDown > HIGH_LIMIT) {
+    baseAngle++;
+  }
+
+  // Left joystick left/right -> shoulder servo D5
+  if (leftLeftRight < LOW_LIMIT) {
+    shoulderAngle--;
+  } 
+  else if (leftLeftRight > HIGH_LIMIT) {
+    shoulderAngle++;
+  }
+
+  // Right joystick up/down -> elbow servo D6
+  if (rightUpDown < LOW_LIMIT) {
+    elbowAngle--;
+  } 
+  else if (rightUpDown > HIGH_LIMIT) {
+    elbowAngle++;
+  }
+
+  // Right joystick left/right -> gripper servo D7
+  if (rightLeftRight < LOW_LIMIT) {
+    gripperAngle--;
+  } 
+  else if (rightLeftRight > HIGH_LIMIT) {
+    gripperAngle++;
+  }
+
+  // Prevent servos from pushing too far
+  baseAngle = constrain(baseAngle, 10, 170);
+  shoulderAngle = constrain(shoulderAngle, 20, 160);
+  elbowAngle = constrain(elbowAngle, 20, 160);
+  gripperAngle = constrain(gripperAngle, 30, 150);
+
+  baseServo.write(baseAngle);
+  shoulderServo.write(shoulderAngle);
+  elbowServo.write(elbowAngle);
+  gripperServo.write(gripperAngle);
+
+  delay(20);
 }
+
+
 ```
 
 # Bill of Materials
@@ -89,3 +167,5 @@ One of the best parts about Github is that you can view how other people set up 
 - [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
 
 To watch the BSE tutorial on how to create a portfolio, click here.
+
+
