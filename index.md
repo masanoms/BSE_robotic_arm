@@ -158,7 +158,13 @@ Don't forget to place the link of where to buy each component inside the quotati
 |:--:|:--:|:--:|:--:|
 | MG90S | Robotic joint servo | $8.88 | <a href="https://www.amazon.com/Miuzei-Geared-Helicopter-Arduino-Project/dp/B0BWJ4RKGV?th=1"> Link </a> |
 | TPU 85A | Robotic arm Gripper | $12.99 | <a href="https://www.amazon.com/Tecsonar-Filament-Flexible-Rubber-Like-Wear-Resistant/dp/B0G7DYXB34/ref=sr_1_12_sspa?crid=2VZ6MHF26ROI9&dib=eyJ2IjoiMSJ9.BKzEBDiO2tSC6gP-xL27-ZN3TBL9tsuQffdt0qGFqq3Xx9itqNldP0Xo4ABZH8_W9fBu2I2Wf_7w4nD_XetefPeKRJQth28363G-G-FEbKO73EreJwiOePkH5h9FeMHbUT0TYfCndpGixsceuXki4vD45D8xLa-m30P9-DUCiozLqd_bSIQT0EWgUjCyrXZBYf3kwb_gXBpCO3dwklEQEITJi0L-cpzEwBb6pRoA_AMvplqM_PZT7zjDyi3_S-Tt9c6clcCC1KaqVgRVylkce9p7AZjKyztPc2lAB3NUitk.6R_Lzx7_CctY-LfTdoz27-pa7qpsQFR3SG-EIBtx-k4&dib_tag=se&keywords=TPU%2B85A&qid=1786130783&s=industrial&sprefix=tpu%2B85a%2Cindustrial%2C174&sr=1-12-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9tdGY&th=1"> Link </a> |
-| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Cokoino Robotic arm 3-jointed | use for the frame | $45.99 | <a href="https://www.amazon.com/LK-COKOINO-Compliment-Engineering-Technology/dp/B081FG1JQ1/ref=sr_1_1?crid=147PB4YNMZXDQ&dib=eyJ2IjoiMSJ9.ihbosckPiqDh6cmOHq36FG3THgpc79ravzRBHtSrcmZIInGiOdGeSOtes25CwricGDE1FiQfB-tmxOMXeGpC__2b-fyg9CL_qyTiuz066sDDKkHON3QGTj18nC-z9KB_.kSuDPY5jHlSSsn74TUa53ykofYhdcrhDagQsxYsWLxk&dib_tag=se&keywords=cokoino&qid=1786135732&sprefix=cokoino+%2Caps%2C179&sr=8-1"> Link </a> |
+| Micro controller shield | To protect the microcontroller and servos from getting fried from high voltage | $10.98 | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| screwdriver kit | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Electronics Kits | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| 9V barrel Jack | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| DMM | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| 9V Batteries | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 
 # Other Resources/Examples
 One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
