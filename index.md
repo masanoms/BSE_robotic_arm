@@ -52,7 +52,8 @@ With the base project and code now complete, my future milestones will focus on 
 
 Base Project Schematic:
 
-<img width="630" height="667" alt="image" src="<img width="1625" height="1602" alt="Screenshot 2026-07-24 125305" src="https://github.com/user-attachments/assets/f5dbd037-8e5f-4ba4-bf9a-f48b33ea42bd" />
+<img width="630" height="667" alt="image" src="<img width="1625" height="1602" alt="Screenshot 2026-07-24 125305" src="https://github.com/user-attachments/assets/fdcb6ea0-7cf5-460f-9160-e73886259d84" />
+" />
 " />
 
 
